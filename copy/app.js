@@ -79,8 +79,6 @@ const closeGuideModalBtn = document.getElementById('closeGuideModal');
 const guideContent = {
   keyboard: {
     title: 'Как копировать с помощью клавиш',
-    text:
-      '1) Выдели нужный текст слева. 2) Нажми Ctrl+C, чтобы скопировать. 3) Поставь курсор в поле справа и нажми Ctrl+V, чтобы вставить.',
     image: 'keyboard-copy-hint.svg'
   },
   mouse: {
