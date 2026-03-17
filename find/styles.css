@@ -5,10 +5,10 @@
   --brand-cyan: #59bae0;
   --brand-pink: #ef56b8;
   --brand-green: #1bc98c;
-  --brand-bg: #cde8e6;
-  --brand-bg-alt: #c8d5ea;
-  --brand-surface: #d8d5eb;
-  --brand-border: #b7a4ee;
+  --brand-bg: #e8f8ff;
+  --brand-bg-alt: #efe8ff;
+  --brand-surface: #f1ebff;
+  --brand-border: #bea9ff;
 }
 
 * {
