@@ -1,12 +1,13 @@
 :root {
-  --bg: #cfe3ef;
-  --card: #eef7ff;
+  --bg: #cde8e6;
+  --bg-alt: #c8d5ea;
+  --card: #d8d5eb;
   --panel: #ffffff;
-  --text: #2b2179;
-  --muted: #4d4d7a;
-  --border: #b596ff;
-  --accent: #7a3df0;
-  --accent-dark: #5b2cc9;
+  --text: #1f1d52;
+  --muted: #3d3968;
+  --border: #b7a4ee;
+  --accent: #5a2ac6;
+  --accent-dark: #5816b4;
 }
 
 * {
@@ -16,7 +17,7 @@
 body {
   margin: 0;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  background: linear-gradient(180deg, #d9e6f5 0%, var(--bg) 100%);
+  background: linear-gradient(to right, var(--bg-alt) 0%, var(--bg) 100%);
   color: var(--text);
 }
 
@@ -33,17 +34,17 @@ body {
 }
 
 .logo {
-  width: 76px;
+  width: clamp(56px, 7vw, 72px);
   height: auto;
 }
 
 .screen {
   display: none;
   background: var(--card);
-  border: 2px solid #bba3f6;
+  border: 2px solid var(--border);
   border-radius: 22px;
   padding: 20px;
-  box-shadow: 0 10px 24px rgba(84, 53, 173, 0.12);
+  box-shadow: 0 10px 24px rgba(89, 59, 181, 0.12);
 }
 
 .screen.active {

@@ -1,5 +1,6 @@
 :root {
   --bg: #cde8e6;
+  --bg-alt: #c8d5ea;
   --panel-bg: #d8d5eb;
   --panel-border: #b7a4ee;
   --accent: #5a2ac6;
@@ -18,14 +19,14 @@ body {
   min-height: 100vh;
   font-family: "Trebuchet MS", "Segoe UI", sans-serif;
   color: var(--text);
-  background: linear-gradient(to right, #c8d5ea 0%, var(--bg) 100%);
+  background: linear-gradient(to right, var(--bg-alt) 0%, var(--bg) 100%);
 }
 
 .logo {
   position: fixed;
   top: 18px;
   left: 18px;
-  width: 64px;
+  width: clamp(56px, 7vw, 72px);
   z-index: 2;
 }
 

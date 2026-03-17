@@ -1,10 +1,14 @@
 :root {
   color-scheme: only light;
-  --brand-purple: #7a29df;
+  --brand-purple: #5a2ac6;
   --brand-purple-dark: #5816b4;
   --brand-cyan: #59bae0;
   --brand-pink: #ef56b8;
   --brand-green: #1bc98c;
+  --brand-bg: #cde8e6;
+  --brand-bg-alt: #c8d5ea;
+  --brand-surface: #d8d5eb;
+  --brand-border: #b7a4ee;
 }
 
 * {
@@ -14,7 +18,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: radial-gradient(circle at 15% 15%, #f3e9ff 0%, #d8f1ff 45%, #dff7ee 100%);
+  background: linear-gradient(to right, var(--brand-bg-alt) 0%, var(--brand-bg) 100%);
   color: #2d1854;
 }
 
@@ -22,7 +26,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: clamp(44px, 7vw, 56px);
+  width: clamp(56px, 7vw, 72px);
   height: auto;
   z-index: 20;
   filter: drop-shadow(0 4px 8px rgb(88 22 180 / 22%));
@@ -36,8 +40,8 @@ body {
 
 .intro {
   text-align: center;
-  background: linear-gradient(135deg, rgb(122 41 223 / 10%), rgb(89 186 224 / 18%));
-  border: 2px solid rgb(122 41 223 / 28%);
+  background: color-mix(in srgb, var(--brand-surface) 85%, #fff);
+  border: 2px solid var(--brand-border);
   border-radius: 18px;
   padding: 14px 14px 16px;
   margin-bottom: 14px;
