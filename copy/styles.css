@@ -56,11 +56,43 @@ body {
   justify-content: space-between;
   gap: 1rem;
   align-items: center;
+  flex-wrap: wrap;
+}
+
+.level-info {
+  font-size: 1.05rem;
+}
+
+.copy-guide {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.copy-guide-label {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.guide-btn {
+  border: 1px solid color-mix(in srgb, var(--accent) 55%, #fff);
+  background: #fff;
+  color: var(--accent);
+  border-radius: 999px;
+  padding: 0.35rem 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.guide-btn:hover {
+  background: color-mix(in srgb, var(--accent) 10%, #fff);
 }
 
 .hint {
   color: var(--accent);
   font-weight: 700;
+  margin-left: auto;
 }
 
 .workspace {
@@ -85,7 +117,6 @@ body {
   font-size: 1rem;
   white-space: pre-wrap;
 }
-
 
 .highlight-copy {
   color: var(--brand-primary-dark, #5816b4);
@@ -129,9 +160,57 @@ body {
   filter: brightness(1.05);
 }
 
+.modal[hidden] {
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 8, 48, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  padding: 1rem;
+}
+
+.modal-card {
+  width: min(560px, 100%);
+  background: #fff;
+  border-radius: 18px;
+  border: 2px solid var(--panel-border);
+  padding: 1rem 1.2rem 1.3rem;
+  box-shadow: 0 16px 50px rgba(35, 12, 80, 0.22);
+}
+
+.modal-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.45rem;
+}
+
+.modal-card p {
+  margin-top: 0;
+}
+
+.modal-image {
+  display: block;
+  width: 100%;
+  max-width: 460px;
+  margin: 0.5rem auto 0.8rem;
+  border: 1px solid color-mix(in srgb, var(--panel-border) 55%, #fff);
+  border-radius: 12px;
+  background: var(--card-light);
+}
+
 @media (max-width: 840px) {
   .workspace {
     grid-template-columns: 1fr;
+  }
+
+  .hint {
+    margin-left: 0;
+    width: 100%;
   }
 }
 
