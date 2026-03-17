@@ -1,11 +1,13 @@
 :root {
-  --bg: #0b1020;
-  --card: #151c34;
-  --card-light: #1f2949;
-  --text: #ecf2ff;
-  --accent: #7bdcff;
-  --good: #80ed99;
-  --bad: #ff8fa3;
+  --bg: #cde8e6;
+  --bg-alt: #c8d5ea;
+  --card: #d8d5eb;
+  --card-light: #eceaf8;
+  --text: #1f1d52;
+  --accent: #5a2ac6;
+  --good: #2d9b4a;
+  --bad: #c84062;
+  --panel-border: #b7a4ee;
 }
 
 * {
@@ -16,22 +18,31 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: "Segoe UI", Tahoma, sans-serif;
-  background: radial-gradient(circle at top, #1e2a57, var(--bg));
+  background: linear-gradient(to right, var(--bg-alt) 0%, var(--bg) 100%);
   color: var(--text);
+}
+
+.logo {
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  width: clamp(56px, 7vw, 72px);
+  height: auto;
+  z-index: 30;
 }
 
 .app {
   width: min(1100px, 94vw);
-  margin: 2rem auto;
-  padding: 1rem;
+  margin: 1.5rem auto;
+  padding: 1.5rem 1rem 1rem;
 }
 
 .header,
 .level-panel,
 .column {
-  background: rgba(21, 28, 52, 0.95);
-  border: 1px solid rgba(123, 220, 255, 0.2);
-  border-radius: 14px;
+  background: color-mix(in srgb, var(--card) 92%, #fff);
+  border: 2px solid var(--panel-border);
+  border-radius: 18px;
   padding: 1rem 1.2rem;
 }
 
@@ -49,7 +60,7 @@ body {
 
 .hint {
   color: var(--accent);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .workspace {
@@ -68,7 +79,7 @@ body {
   min-height: 180px;
   border-radius: 10px;
   background: var(--card-light);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid color-mix(in srgb, var(--panel-border) 65%, #fff);
   padding: 0.9rem;
   line-height: 1.5;
   font-size: 1rem;
@@ -77,8 +88,8 @@ body {
 
 
 .highlight-copy {
-  color: #ffd166;
-  background: rgba(255, 209, 102, 0.15);
+  color: var(--brand-primary-dark, #5816b4);
+  background: color-mix(in srgb, var(--accent) 18%, #fff);
   padding: 0.05rem 0.2rem;
   border-radius: 4px;
   font-weight: 700;
@@ -107,8 +118,8 @@ body {
   margin-top: 0.4rem;
   border: none;
   border-radius: 10px;
-  background: linear-gradient(120deg, #61f3ae, #8dd8ff);
-  color: #04203a;
+  background: linear-gradient(120deg, var(--accent), #8f3bff);
+  color: #fff;
   font-weight: 700;
   padding: 0.65rem 1rem;
   cursor: pointer;
@@ -121,5 +132,17 @@ body {
 @media (max-width: 840px) {
   .workspace {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .logo {
+    width: 62px;
+    top: 10px;
+    left: 10px;
+  }
+
+  .app {
+    margin-top: 4.5rem;
   }
 }
