@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Космический штаб: тренажёр копирования</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <h1>🚀 Космический штаб</h1>
+        <p>
+          Твоя задача — передать важные данные экипажу. Скопируй нужный фрагмент из
+          сообщения слева и вставь его справа.
+        </p>
+      </header>
+
+      <section class="level-panel">
+        <div>
+          <strong>Уровень:</strong>
+          <span id="levelNumber">1</span>
+          <span>/ <span id="totalLevels">10</span></span>
+        </div>
+        <div class="hint" id="copyHint"></div>
+      </section>
+
+      <section class="workspace">
+        <article class="column">
+          <h2>Сообщение из штаба</h2>
+          <p id="sourceText" class="text-box" tabindex="0" aria-label="Текст сообщения"></p>
+          <p id="selectionStatus" class="status" aria-live="polite"></p>
+        </article>
+
+        <article class="column">
+          <h2>Канал передачи экипажу</h2>
+          <textarea
+            id="pasteArea"
+            class="text-box input"
+            placeholder="Вставь сюда скопированный фрагмент"
+            aria-label="Поле для вставки"
+          ></textarea>
+          <p id="pasteStatus" class="status" aria-live="polite"></p>
+          <button id="nextLevelBtn" class="next-btn" hidden>Перейти на следующий уровень</button>
+        </article>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
