@@ -1,0 +1,281 @@
+:root {
+  --bg: #cde8e6;
+  --panel-bg: #d8d5eb;
+  --panel-border: #b7a4ee;
+  --accent: #5a2ac6;
+  --text: #1f1d52;
+  --branch: #8b5e34;
+  --branch-edge: #654321;
+  --ok: #8de06c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  color: var(--text);
+  background: linear-gradient(to right, #c8d5ea 0%, var(--bg) 100%);
+}
+
+.logo {
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  width: 64px;
+  z-index: 2;
+}
+
+.page {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 22px 22px 30px;
+}
+
+.hero,
+.hud,
+.help-card,
+.board {
+  border: 2px solid var(--panel-border);
+  border-radius: 22px;
+  background: color-mix(in srgb, var(--panel-bg) 92%, #fff);
+  box-shadow: 0 10px 18px rgb(89 59 181 / 0.12);
+}
+
+.hero {
+  text-align: center;
+  padding: 14px;
+  margin: 0 0 16px;
+}
+
+.hero h1 {
+  margin: 0;
+  color: #5816b6;
+  font-size: clamp(1.6rem, 3.4vw, 2.8rem);
+}
+
+.hero p {
+  margin: 8px 0 0;
+  font-size: clamp(0.92rem, 1.7vw, 1.3rem);
+}
+
+.game-layout {
+  display: grid;
+  grid-template-columns: 1fr 290px;
+  gap: 14px;
+  align-items: start;
+}
+
+.hud {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.game-area main {
+  position: relative;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 10), minmax(70px, 1fr));
+  gap: 0;
+  padding: 4px;
+  overflow: hidden;
+}
+
+.tile {
+  aspect-ratio: 1;
+  background: #d8ceb2;
+  border: 1px solid #a79c7e;
+  border-radius: 0;
+  position: relative;
+  cursor: pointer;
+  transition: box-shadow 150ms ease;
+}
+
+.tile.selected {
+  box-shadow: inset 0 0 0 3px #8f39de;
+}
+
+.tile.path {
+  box-shadow: inset 0 0 0 4px rgb(141 224 108 / 0.35);
+}
+
+.tile.start::after,
+.tile.end::after {
+  position: absolute;
+  top: 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #fff;
+  background: #7a33d7;
+  border-radius: 999px;
+  padding: 0.18rem 0.5rem;
+}
+
+.tile.start::after {
+  content: "старт";
+  right: 6px;
+}
+
+.tile.end::after {
+  content: "выход";
+  left: 6px;
+}
+
+.tile svg {
+  width: 100%;
+  height: 100%;
+  transform-origin: center;
+}
+
+.help-card {
+  padding: 18px 16px;
+  background: #f5f4fb;
+}
+
+.mouse-icons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.mouse-icons img {
+  width: 100%;
+  max-width: 122px;
+  justify-self: center;
+}
+
+.help-card ol {
+  margin: 10px 0 0;
+  padding-left: 24px;
+  line-height: 1.35;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #2b2363;
+}
+
+.help-card li + li {
+  margin-top: 10px;
+}
+
+.context-menu {
+  position: fixed;
+  display: none;
+  flex-direction: column;
+  min-width: 180px;
+  z-index: 10;
+  border-radius: 14px;
+  background: #fff;
+  border: 2px solid #8550e1;
+  box-shadow: 0 12px 20px rgb(69 35 147 / 0.28);
+  padding: 0.3rem;
+}
+
+.context-menu.visible {
+  display: flex;
+}
+
+.context-menu button {
+  border: 0;
+  text-align: left;
+  background: transparent;
+  color: #271d65;
+  padding: 0.55rem 0.6rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.context-menu button:hover {
+  background: rgb(133 80 225 / 0.13);
+}
+
+@media (max-width: 1024px) {
+  .game-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .help-card {
+    order: -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .logo {
+    width: 62px;
+    top: 10px;
+    left: 10px;
+  }
+
+  .page {
+    padding: 70px 10px 20px;
+  }
+
+  .board {
+    grid-template-columns: repeat(var(--cols, 10), minmax(32px, 1fr));
+  }
+
+  .help-card ol {
+    font-size: 1rem;
+  }
+}
+
+
+.level-win-modal {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgb(37 22 84 / 0.35);
+  z-index: 3;
+}
+
+.level-win-modal[hidden] {
+  display: none;
+}
+
+.level-win-modal__card {
+  border: 2px solid var(--panel-border);
+  border-radius: 18px;
+  background: #fff;
+  padding: 18px 20px;
+  text-align: center;
+  box-shadow: 0 12px 20px rgb(69 35 147 / 0.28);
+}
+
+.level-win-modal__card p {
+  margin: 0 0 12px;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #2b2363;
+}
+
+.level-win-modal__card button {
+  border: 0;
+  background: #7a33d7;
+  color: #fff;
+  border-radius: 10px;
+  padding: 0.55rem 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.level-win-modal__card button:hover {
+  background: #6729bb;
+}
+
+
+.level-win-modal__card button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

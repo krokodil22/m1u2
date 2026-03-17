@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задание 2. М1У2</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <img src="logo.webp" alt="Логотип" class="logo" />
+
+    <div class="page">
+      <header class="hero">
+        <h1>Проложи путь</h1>
+        <p>Вращай веточки и собери непрерывный путь от старта к выходу!</p>
+      </header>
+
+      <section class="game-layout">
+        <div class="game-area">
+          <section class="hud">
+            <div id="status">Статус: в пути…</div>
+          </section>
+
+          <main>
+            <div id="board" class="board" aria-label="Игровое поле"></div>
+            <div id="level-win-modal" class="level-win-modal" aria-live="polite" hidden>
+              <div class="level-win-modal__card">
+                <p id="level-win-message">Ты прошел уровень 1!</p>
+                <button id="next-level-btn" type="button">Следующий уровень</button>
+              </div>
+            </div>
+          </main>
+        </div>
+
+        <aside class="help-card" aria-label="Подсказки по управлению">
+          <div class="mouse-icons">
+            <img src="mouse1.svg" alt="Левая кнопка мыши" />
+          </div>
+          <ol>
+            <li>Чтобы выбрать ветку, нажми левой кнопкой мыши.</li>
+          </ol>
+          <div class="mouse-icons">
+            <img src="mouse2.svg" alt="Правая кнопка мыши" />
+          </div>
+          <ol start="2">
+            <li>Чтобы повернуть ветку, нажми правой кнопкой мыши, а затем выбери нужную сторону.</li>
+          </ol>
+        </aside>
+      </section>
+    </div>
+
+    <menu id="context-menu" class="context-menu" aria-hidden="true">
+      <button id="rotate-left" type="button">поворот влево</button>
+      <button id="rotate-right" type="button">поворот вправо</button>
+    </menu>
+
+    <script src="script.js"></script>
+  </body>
+</html>
