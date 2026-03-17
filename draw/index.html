@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Угадай слово и рисуй</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="brand-header">
+      <img src="logo.webp" alt="Логотип" class="logo" />
+    </header>
+
+    <section id="rules-screen" class="screen active">
+      <h1>Игра «Нарисуй слово»</h1>
+      <p class="rules">
+        Выберите сложность, получите случайное слово и постарайтесь нарисовать его.
+        Когда рисунок будет готов, нажмите «Готово!», чтобы завершить.
+      </p>
+
+      <fieldset class="difficulty-group">
+        <legend>Сложность:</legend>
+        <label><input type="radio" name="difficulty" value="easy" checked /> 1 — Простая</label>
+        <label><input type="radio" name="difficulty" value="medium" /> 2 — Средняя</label>
+        <label><input type="radio" name="difficulty" value="hard" /> 3 — Сложная</label>
+      </fieldset>
+
+      <button id="get-word-btn" class="btn">Получить слово</button>
+
+      <div id="word-box" class="word-box" hidden>
+        <p>Ваше слово:</p>
+        <strong id="generated-word"></strong>
+        <button id="start-btn" class="btn btn-accent">Начать!</button>
+      </div>
+    </section>
+
+    <section id="draw-screen" class="screen" aria-hidden="true">
+      <div class="panel-title">
+        <h2>Рисование</h2>
+        <p>Выбери инструмент, цвет и дорисуй загаданное слово</p>
+      </div>
+
+      <div class="workspace">
+        <div class="draw-area">
+          <div class="toolbar">
+            <div class="tool-group" aria-label="Инструменты для рисования">
+              <button class="tool active" data-tool="pencil" aria-label="Карандаш" title="Карандаш">✏️</button>
+              <button class="tool" data-tool="eraser" aria-label="Ластик" title="Ластик">🧽</button>
+              <button class="tool" data-tool="line" aria-label="Линия" title="Линия">／</button>
+              <button class="tool" data-tool="rect" aria-label="Прямоугольник" title="Прямоугольник">▭</button>
+              <button class="tool" data-tool="circle" aria-label="Круг" title="Круг">◯</button>
+              <button class="tool" data-tool="triangle" aria-label="Треугольник" title="Треугольник">△</button>
+              <button class="tool" data-tool="fill" aria-label="Заливка" title="Заливка">💧</button>
+              <button id="undo-btn" class="tool tool-action" aria-label="Отмена последнего действия" title="Отмена последнего действия">↩️</button>
+            </div>
+
+            <label class="color-label">Цвет
+              <input id="color-picker" type="color" value="#1f2937" />
+            </label>
+
+            <label class="size-label">Толщина
+              <input id="size-range" type="range" min="1" max="40" value="4" />
+            </label>
+
+            <button id="clear-btn" class="btn">Стереть всё</button>
+            <button id="done-btn" class="btn btn-accent">Готово!</button>
+          </div>
+
+          <div class="canvas-wrap">
+            <canvas id="canvas" width="980" height="560"></canvas>
+          </div>
+        </div>
+
+        <aside class="tips-box">
+          <h3>Подсказка</h3>
+          <ol>
+            <li>Выбери подходящий инструмент с панели.</li>
+            <li>Меняй цвет и толщину, чтобы сделать рисунок выразительнее.</li>
+            <li>Нажми «Готово!», когда закончишь рисунок.</li>
+          </ol>
+        </aside>
+      </div>
+    </section>
+
+    <section id="result-screen" class="screen" aria-hidden="true">
+      <h2>Рисование завершено</h2>
+      <p>Загаданное слово было: <strong id="result-word"></strong></p>
+      <img id="result-image" alt="Готовый рисунок" />
+      <button id="restart-btn" class="btn">Играть снова</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
