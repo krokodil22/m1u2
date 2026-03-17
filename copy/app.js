@@ -69,6 +69,27 @@ const selectionStatusEl = document.getElementById('selectionStatus');
 const pasteAreaEl = document.getElementById('pasteArea');
 const pasteStatusEl = document.getElementById('pasteStatus');
 const nextLevelBtn = document.getElementById('nextLevelBtn');
+const guideButtons = document.querySelectorAll('.guide-btn');
+const guideModalEl = document.getElementById('guideModal');
+const guideModalTitleEl = document.getElementById('guideModalTitle');
+const guideModalTextEl = document.getElementById('guideModalText');
+const guideModalImageEl = document.getElementById('guideModalImage');
+const closeGuideModalBtn = document.getElementById('closeGuideModal');
+
+const guideContent = {
+  keyboard: {
+    title: 'Как копировать с помощью клавиш',
+    text:
+      '1) Выдели нужный текст слева. 2) Нажми Ctrl+C, чтобы скопировать. 3) Поставь курсор в поле справа и нажми Ctrl+V, чтобы вставить.',
+    image: 'keyboard-copy-hint.svg'
+  },
+  mouse: {
+    title: 'Как копировать с помощью мыши',
+    text:
+      '1) Выдели нужный текст слева. 2) Нажми правой кнопкой мыши по выделению и выбери «Копировать». 3) В поле справа снова нажми правой кнопкой и выбери «Вставить».',
+    image: 'mouse-copy-hint.svg'
+  }
+};
 
 let levelIndex = 0;
 let isCorrectSelection = false;
@@ -154,6 +175,20 @@ function checkPaste() {
   }
 }
 
+function openGuideModal(type) {
+  const guide = guideContent[type];
+  if (!guide) return;
+
+  guideModalTitleEl.textContent = guide.title;
+  guideModalTextEl.textContent = guide.text;
+  guideModalImageEl.src = guide.image;
+  guideModalEl.hidden = false;
+}
+
+function closeGuideModal() {
+  guideModalEl.hidden = true;
+}
+
 sourceTextEl.addEventListener('mouseup', checkSelection);
 sourceTextEl.addEventListener('keyup', checkSelection);
 document.addEventListener('selectionchange', () => {
@@ -171,6 +206,19 @@ pasteAreaEl.addEventListener('paste', () => setTimeout(checkPaste, 0));
 nextLevelBtn.addEventListener('click', () => {
   levelIndex = (levelIndex + 1) % levels.length;
   renderLevel();
+});
+
+for (const button of guideButtons) {
+  button.addEventListener('click', () => {
+    openGuideModal(button.dataset.guide);
+  });
+}
+
+closeGuideModalBtn.addEventListener('click', closeGuideModal);
+guideModalEl.addEventListener('click', (event) => {
+  if (event.target === guideModalEl) {
+    closeGuideModal();
+  }
 });
 
 renderLevel();

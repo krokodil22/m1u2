@@ -18,10 +18,15 @@
       </header>
 
       <section class="level-panel">
-        <div>
+        <div class="level-info">
           <strong>Уровень:</strong>
           <span id="levelNumber">1</span>
           <span>/ <span id="totalLevels">10</span></span>
+        </div>
+        <div class="copy-guide">
+          <span class="copy-guide-label">Как копировать:</span>
+          <button type="button" class="guide-btn" data-guide="keyboard">С помощью клавиш</button>
+          <button type="button" class="guide-btn" data-guide="mouse">С помощью мыши</button>
         </div>
         <div class="hint" id="copyHint"></div>
       </section>
@@ -46,6 +51,15 @@
         </article>
       </section>
     </main>
+
+    <div id="guideModal" class="modal" hidden>
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="guideModalTitle">
+        <h3 id="guideModalTitle"></h3>
+        <p id="guideModalText"></p>
+        <img id="guideModalImage" class="modal-image" alt="Подсказка по копированию" />
+        <button type="button" id="closeGuideModal" class="next-btn">Понятно!</button>
+      </div>
+    </div>
 
     <script src="app.js"></script>
   </body>

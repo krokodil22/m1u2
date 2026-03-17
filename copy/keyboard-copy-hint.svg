@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="360" viewBox="0 0 720 360" fill="none">
+  <rect width="720" height="360" rx="24" fill="#F4EEFF"/>
+  <rect x="56" y="56" width="608" height="248" rx="18" fill="#FFFFFF" stroke="#BEA9FF" stroke-width="4"/>
+  <text x="90" y="110" fill="#3E2587" font-family="Segoe UI, sans-serif" font-size="28" font-weight="700">Шаг 1: Выдели текст</text>
+  <text x="90" y="148" fill="#3E2587" font-family="Segoe UI, sans-serif" font-size="24">Шаг 2: Нажми Ctrl + C</text>
+  <text x="90" y="186" fill="#3E2587" font-family="Segoe UI, sans-serif" font-size="24">Шаг 3: Нажми Ctrl + V</text>
+  <rect x="90" y="214" width="140" height="56" rx="12" fill="#EFE8FF" stroke="#7D4AF6"/>
+  <text x="137" y="250" fill="#5A2AC6" font-family="Segoe UI, sans-serif" font-size="28" font-weight="700">Ctrl</text>
+  <text x="250" y="250" fill="#5A2AC6" font-family="Segoe UI, sans-serif" font-size="32" font-weight="700">+</text>
+  <rect x="286" y="214" width="64" height="56" rx="12" fill="#EFE8FF" stroke="#7D4AF6"/>
+  <text x="310" y="250" fill="#5A2AC6" font-family="Segoe UI, sans-serif" font-size="30" font-weight="700">C</text>
+  <text x="372" y="250" fill="#5A2AC6" font-family="Segoe UI, sans-serif" font-size="32" font-weight="700">/</text>
+  <rect x="406" y="214" width="64" height="56" rx="12" fill="#EFE8FF" stroke="#7D4AF6"/>
+  <text x="430" y="250" fill="#5A2AC6" font-family="Segoe UI, sans-serif" font-size="30" font-weight="700">V</text>
+</svg>
