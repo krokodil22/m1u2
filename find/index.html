@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Найди динозавров</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <img class="school-logo" src="logo.webp" alt="Логотип школы" draggable="false" />
+
+    <main class="page">
+      <section class="intro">
+        <h1>Найди всех динозавров</h1>
+        <p class="hint">Передвигай предметы, находи динозавров и нажимай на них.</p>
+      </section>
+
+      <div class="game-layout">
+        <section class="game" aria-label="Игровое поле">
+        <img class="bg" src="background.webp" alt="Фон" draggable="false" />
+
+        <img class="dino" data-dino="1" src="Dino1.webp" alt="Динозавр 1" draggable="false" style="left: 47%; top: 58%; width: 8.5%;" />
+        <img class="dino" data-dino="2" src="Dino2.webp" alt="Динозавр 2" draggable="false" style="left: 9%; top: 59%; width: 8.8%;" />
+        <img class="dino" data-dino="3" src="Dino3.webp" alt="Динозавр 3" draggable="false" style="left: 73%; top: 65%; width: 8.2%;" />
+        <img class="dino" data-dino="4" src="Dino4.webp" alt="Динозавр 4" draggable="false" style="left: 43%; top: 79%; width: 7.6%;" />
+        <img class="dino" data-dino="5" src="Dino5.webp" alt="Динозавр 5" draggable="false" style="left: 38%; top: 14.7%; width: 8.3%;" />
+        <img class="dino" data-dino="6" src="Dino6.webp" alt="Динозавр 6" draggable="false" style="left: 57%; top: 80%; width: 7.3%;" />
+
+        <img class="prop draggable" data-prop="bash" src="Bash.webp" alt="Куст 1" draggable="false" style="left: 5.31475%; top: 48.0608%; width: 18%;" />
+        <img class="prop draggable" data-prop="bash2" src="Bash2.webp" alt="Куст 2" draggable="false" style="left: 43.5967%; top: 40.8318%; width: 15.5%;" />
+        <img class="prop draggable" data-prop="cloud" src="Cloud.webp" alt="Облако" draggable="false" style="left: 24.6372%; top: 2.70993%; width: 37%;" />
+        <img class="prop draggable" data-prop="stone" src="Stone.webp" alt="Камень 1" draggable="false" style="left: 42.0876%; top: 75.588%; width: 23%;" />
+        <img class="prop draggable" data-prop="stone2" src="Stone2.webp" alt="Камень 2" draggable="false" style="left: 4.51874%; top: 73.939%; width: 22%;" />
+        <img class="prop draggable" data-prop="palm" src="Palm.webp" alt="Пальма" draggable="false" style="left: 58.4946%; top: 27.6854%; width: 37%;" />
+
+        <div class="hud">
+          <div class="counter">Найдено: <span id="found-count">0</span> / <span id="total-count">0</span></div>
+          <button id="reset-game" class="reset-button" type="button" aria-label="Сбросить игру" title="Сбросить игру">↻</button>
+        </div>
+        <div id="win-message" class="win-message" aria-live="polite"></div>
+        </section>
+
+        <aside class="side-hint" aria-label="Подсказка по управлению">
+          <img src="mouse-hint.svg" alt="Компьютерная мышь с выделенной левой кнопкой" draggable="false" />
+          <ol>
+            <li>Чтобы передвигать предметы, зажми левую кнопку мыши.</li>
+            <li>Чтобы собрать динозавра, два раза кликни по нему.</li>
+          </ol>
+        </aside>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
