@@ -159,17 +159,23 @@ function loadLevel(index) {
   updateSolvedPath();
 }
 
+function isSecondaryActivation(event) {
+  return event.button === 2 || event.ctrlKey;
+}
+
 function handleSecondaryActivation(row, col, event) {
-  if (!(event.button === 2 || event.ctrlKey)) return false;
+  if (!isSecondaryActivation(event)) return false;
+
+  const isSelectedCell =
+    selectedCell && selectedCell.row === row && selectedCell.col === col;
+
+  if (!isSelectedCell) {
+    hideMenu();
+    return false;
+  }
 
   event.preventDefault();
   ignoreClickUntil = Date.now() + 400;
-
-  if (!selectedCell || selectedCell.row !== row || selectedCell.col !== col) {
-    selectedCell = { row, col };
-    renderBoard();
-  }
-
   openMenu(row, col, event.clientX, event.clientY);
   return true;
 }
@@ -197,7 +203,9 @@ function renderBoard() {
       });
 
       tile.addEventListener("mousedown", (event) => {
-        handleSecondaryActivation(r, c, event);
+        if (isSecondaryActivation(event)) {
+          handleSecondaryActivation(r, c, event);
+        }
       });
 
       tile.addEventListener("contextmenu", (event) => {
