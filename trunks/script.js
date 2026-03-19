@@ -16,6 +16,7 @@ let currentLevelIndex = 0;
 let board = [];
 let currentLevel = null;
 let pendingNextLevelIndex = null;
+let ignoreClickUntil = 0;
 
 const levels = buildLevels();
 loadLevel(0);
@@ -158,6 +159,21 @@ function loadLevel(index) {
   updateSolvedPath();
 }
 
+function handleSecondaryActivation(row, col, event) {
+  if (!(event.button === 2 || event.ctrlKey)) return false;
+
+  event.preventDefault();
+  ignoreClickUntil = Date.now() + 400;
+
+  if (!selectedCell || selectedCell.row !== row || selectedCell.col !== col) {
+    selectedCell = { row, col };
+    renderBoard();
+  }
+
+  openMenu(row, col, event.clientX, event.clientY);
+  return true;
+}
+
 function renderBoard() {
   boardEl.innerHTML = "";
   board.forEach((row, r) => {
@@ -175,17 +191,17 @@ function renderBoard() {
       }
 
       tile.addEventListener("click", () => {
+        if (Date.now() < ignoreClickUntil) return;
         selectCell(r, c);
         hideMenu();
       });
 
+      tile.addEventListener("mousedown", (event) => {
+        handleSecondaryActivation(r, c, event);
+      });
+
       tile.addEventListener("contextmenu", (event) => {
-        event.preventDefault();
-        if (!selectedCell || selectedCell.row !== r || selectedCell.col !== c) {
-          selectedCell = { row: r, col: c };
-          renderBoard();
-        }
-        openMenu(r, c, event.clientX, event.clientY);
+        handleSecondaryActivation(r, c, event);
       });
 
       tile.innerHTML = pieceSvg(cell);
